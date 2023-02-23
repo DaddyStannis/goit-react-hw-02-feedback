@@ -12,6 +12,13 @@ class App extends Component {
     bad: 0,
   };
 
+  onLeaveFeedback = btnKey => {
+    const normalizedButtonKey = btnKey.toLowerCase();
+    this.setState({
+      [normalizedButtonKey]: this.state[normalizedButtonKey] + 1,
+    });
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
@@ -22,6 +29,7 @@ class App extends Component {
           <FeedbackOptions
             onLeaveFeedback={this.onLeaveFeedback}
             text="Lorem ipsum"
+            keys={['Good', 'Neutral', 'Bad']}
           />
         </Section>
         <Section title="Statistics">
@@ -38,13 +46,6 @@ class App extends Component {
       </div>
     );
   }
-
-  onLeaveFeedback = event => {
-    const normalizedButtonKey = event.target.textContent.toLowerCase();
-    this.setState({
-      [normalizedButtonKey]: this.state[normalizedButtonKey] + 1,
-    });
-  };
 }
 
 export default App;

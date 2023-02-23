@@ -4,15 +4,19 @@ import { Component } from 'react';
 import Button from '../../shared/components/Button/Button';
 
 class FeedbackOptions extends Component {
-  render() {
+  handleLeaveFeedback = e => {
     const { onLeaveFeedback } = this.props;
-    return (
-      <div className={styles.wrapper}>
-        <Button callback={onLeaveFeedback} text="Good" />
-        <Button callback={onLeaveFeedback} text="Neutral" />
-        <Button callback={onLeaveFeedback} text="Bad" />
-      </div>
-    );
+    onLeaveFeedback(e.target.textContent);
+  };
+
+  render() {
+    const { keys } = this.props;
+
+    const buttons = keys.map(key => (
+      <Button callback={this.handleLeaveFeedback} text={key} />
+    ));
+
+    return <div className={styles.wrapper}>{buttons}</div>;
   }
 }
 
