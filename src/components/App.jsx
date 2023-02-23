@@ -17,7 +17,7 @@ class App extends Component {
     const total = good + neutral + bad;
 
     return (
-      <Fragment>
+      <div className="container">
         <Section title="Please leave feedback">
           <FeedbackOptions
             onLeaveFeedback={this.onLeaveFeedback}
@@ -35,7 +35,7 @@ class App extends Component {
             <Notification message="There is no feedback" />
           )}
         </Section>
-      </Fragment>
+      </div>
     );
   }
 
