@@ -13,7 +13,12 @@ class FeedbackOptions extends Component {
     const { keys } = this.props;
 
     const buttons = keys.map(key => (
-      <Button callback={this.handleLeaveFeedback} text={key} />
+      <Button
+        key={key}
+        className={styles.button}
+        callback={this.handleLeaveFeedback}
+        text={key}
+      />
     ));
 
     return <div className={styles.wrapper}>{buttons}</div>;

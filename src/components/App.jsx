@@ -29,7 +29,7 @@ class App extends Component {
           <FeedbackOptions
             onLeaveFeedback={this.onLeaveFeedback}
             text="Lorem ipsum"
-            keys={['Good', 'Neutral', 'Bad']}
+            keys={Object.keys(this.state)}
           />
         </Section>
         <Section title="Statistics">
